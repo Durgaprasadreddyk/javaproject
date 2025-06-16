@@ -1,0 +1,18 @@
+USE database2;
+
+-- Insert into DEPT
+INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (3, 'EEE', 'HYD');
+
+-- Insert Manager First (to resolve foreign key constraint)
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) 
+VALUES (36, 'John1 Doe', 'Manager1', NULL, '2019-03-01', 80000.00, 5000.00, 3);
+
+-- Insert into EMP (Now MGR=35 exists)
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) 
+VALUES (102, 'Speed1', 'Streamer1', 36, '2023-05-09', 60000.00, 23000.00, 3);
+
+-- Insert into BONUS (Referencing employee 'Speed')
+INSERT INTO BONUS (ENAME, JOB, SAL, COMM) VALUES ('Speed1', 'Streamer1', 60000.00, 23000.00);
+
+-- Insert into SALGRADE
+INSERT INTO SALGRADE (GRADE, LOSAL, HISAL) VALUES (2, 500000.00, 1000000.00);
