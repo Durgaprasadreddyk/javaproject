@@ -49,7 +49,7 @@ public class MainApplication {
                         try {
                             // FIXED: Added the missing call to the calculator's run method.
                             // Using the new class name ConsoleCalculator.
-                            ConsoleCalculator.run(scanner);
+                            Cons.run(scanner);
                         } catch (Exception e) {
                             System.err.println("❌ An error occurred in Console Calculator: " + e.getMessage());
                             e.printStackTrace();
